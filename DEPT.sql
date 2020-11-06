@@ -9,7 +9,6 @@ CREATE TABLE tbl_member(
     DEPT_NAME	    nVARCHAR2(30)	NOT NULL,    -- 이름
     DEPT_NICKNAME   nVARCHAR2(30),               -- 닉네임   
     DEPT_DEPT	    nVARCHAR2(30),               -- 학과
-    DEPT_TEL	    VARCHAR(20),	             -- 전화번호
     DEPT_ROLE	    nVARCHAR2(20),	             -- 권한
     -- ENABLE칼럼에 문자열 0 또는 1 이외의 값은 저장하지 말라
     -- CHECK 제약사항 등록
@@ -21,6 +20,7 @@ CREATE TABLE tbl_member(
 );
 
 SELECT * FROM tbl_member;
+
 
 -- tbl_authority
 CREATE TABLE tbl_authority(
@@ -72,11 +72,11 @@ SELECT SEQ_AUTHORITY.NEXTVAL, SUB.* FROM
 -- 가상테이블
     SELECT 'user11' AS USERNAME, 'ROLE_ADMIN' AS AUTHORITY FROM DUAL
     UNION ALL
-    SELECT 'user11' AS USERNAME, 'ROLE_USER' AS AUTHORITY FROM DUAL
+    SELECT 'user11' AS USERNAME, 'ROLE_MEMBER' AS AUTHORITY FROM DUAL
     UNION ALL
     SELECT 'user12' AS USERNAME, 'ROLE_ADMIN'AS AUTHORITY FROM DUAL
     UNION ALL
-    SELECT 'user12' AS USERNAME, 'ROLE_USER'AS AUTHORITY FROM DUAL
+    SELECT 'user12' AS USERNAME, 'ROLE_MEMBER'AS AUTHORITY FROM DUAL
 ) SUB;
 
 SELECT * FROM tbl_authority;
